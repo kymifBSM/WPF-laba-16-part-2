@@ -1,0 +1,33 @@
+﻿<Page x:Class="WPF_laba_16_part_2.CartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF_laba_16_part_2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CartPage">
+    <Grid>
+        <ListView x:Name="CartItemsListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Наименование" DisplayMemberBinding="{Binding Product.Name}"/>
+                    <GridViewColumn Header="Единицы измерения" DisplayMemberBinding="{Binding Product.Unit}"/>
+                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Product.Price}"/>
+                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Quantity}"/>
+                    <GridViewColumn Header="Стоимость" DisplayMemberBinding="{Binding Cost}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Orientation="Horizontal" Margin="5,250,5,5">
+            <TextBlock Text="Итого:" Style="{StaticResource textblockStyle}" Width="40"/>
+            <TextBlock x:Name="TotalTextBlock" Style="{StaticResource textblockStyle}" Width="100"/>
+            <TextBlock Text="Налог (5%):" Style="{StaticResource textblockStyle}" Width="60"/>
+            <TextBlock x:Name="TaxTextBlock" Style="{StaticResource textblockStyle}" Width="100"/>
+            <TextBlock Text="Всего к оплате:" Style="{StaticResource textblockStyle}" Width="85"/>
+            <TextBlock x:Name="GrandTotalTextBlock" Style="{StaticResource textblockStyle}" Width="100"/>
+        </StackPanel>
+
+        <Button Content="Оформить покупку" Click="CheckoutButton_Click" Style="{StaticResource buttonStyle}" VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>
